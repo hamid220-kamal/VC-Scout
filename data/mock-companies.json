@@ -1,0 +1,117 @@
+[
+    {
+        "id": "1",
+        "name": "Linear",
+        "website": "https://linear.app",
+        "sector": "SaaS",
+        "stage": "Series B",
+        "description": "Linear helps teams streamline software projects, tasks, and bug tracking.",
+        "location": "San Francisco, CA",
+        "funding": "$52M",
+        "founded": "2019",
+        "signals": [
+            {
+                "type": "product",
+                "text": "Launched new Cycles feature",
+                "date": "2024-02-15"
+            },
+            {
+                "type": "hiring",
+                "text": "Hiring for AI Engineering roles",
+                "date": "2024-01-20"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Deel",
+        "website": "https://deel.com",
+        "sector": "Fintech",
+        "stage": "Series D",
+        "description": "Deel is an all-in-one HR platform for global teams.",
+        "location": "San Francisco, CA",
+        "funding": "$629M",
+        "founded": "2019",
+        "signals": [
+            {
+                "type": "expansion",
+                "text": "Expansion into Latin America",
+                "date": "2024-02-10"
+            },
+            {
+                "type": "partnership",
+                "text": "Partnered with Shopify for payroll",
+                "date": "2023-11-05"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Scale AI",
+        "website": "https://scale.com",
+        "sector": "Artificial Intelligence",
+        "stage": "Series E",
+        "description": "The Data Platform for AI. Scale provides the data infrastructure for AI teams.",
+        "location": "San Francisco, CA",
+        "funding": "$602M",
+        "founded": "2016",
+        "signals": [
+            {
+                "type": "product",
+                "text": "Released RLHF datasets for LLMs",
+                "date": "2024-02-01"
+            },
+            {
+                "type": "executive",
+                "text": "New CTO joined from Google",
+                "date": "2023-12-15"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Rippling",
+        "website": "https://rippling.com",
+        "sector": "HR Tech",
+        "stage": "Series E",
+        "description": "Rippling gives businesses a single system to manage their HR, IT, and Finance.",
+        "location": "San Francisco, CA",
+        "funding": "$1.2B",
+        "founded": "2016",
+        "signals": [
+            {
+                "type": "funding",
+                "text": "Raised $500M at $11B valuation",
+                "date": "2023-05-10"
+            },
+            {
+                "type": "product",
+                "text": "Launched Global Payroll in 50 countries",
+                "date": "2024-01-12"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "name": "Vercel",
+        "website": "https://vercel.com",
+        "sector": "Developer Tools",
+        "stage": "Series D",
+        "description": "Vercel is the platform for frontend developers, providing the speed and reliability they need.",
+        "location": "San Francisco, CA",
+        "funding": "$313M",
+        "founded": "2015",
+        "signals": [
+            {
+                "type": "product",
+                "text": "Announced v0.dev AI generation",
+                "date": "2023-10-25"
+            },
+            {
+                "type": "event",
+                "text": "Next.js Conf reached 100k attendees",
+                "date": "2023-10-26"
+            }
+        ]
+    }
+]
