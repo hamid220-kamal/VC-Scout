@@ -4,46 +4,53 @@ import { useState, useEffect } from 'react';
 import { getLists } from '@/utils/storage';
 
 export default function ListsPage() {
-    const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState([]);
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setLists(getLists());
-    }, []);
+  useEffect(() => {
+    const loadData = async () => {
+      setLists(getLists());
+      setMounted(true);
+    };
+    loadData();
+  }, []);
 
-    return (
-        <div className="lists-container">
-            <div className="page-header">
-                <div>
-                    <h2 className="page-title">My Lists</h2>
-                    <p className="page-subtitle">Organize and export your shortlisted companies.</p>
-                </div>
-                <button className="btn-primary">+ Create New List</button>
+  if (!mounted) return null;
+
+  return (
+    <div className="lists-container">
+      <div className="page-header">
+        <div>
+          <h2 className="page-title">My Lists</h2>
+          <p className="page-subtitle">Organize and export your shortlisted companies.</p>
+        </div>
+        <button className="btn-primary">+ Create New List</button>
+      </div>
+
+      <div className="lists-grid">
+        {lists.length > 0 ? (
+          lists.map(list => (
+            <div key={list.id} className="card list-card">
+              <div className="list-info">
+                <h3>{list.name}</h3>
+                <p>{list.companies?.length || 0} Companies</p>
+              </div>
+              <div className="list-actions">
+                <button className="action-link">View List</button>
+                <button className="action-link">Export CSV</button>
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="empty-state card">
+            <div className="empty-icon">📋</div>
+            <p>You haven&apos;t created any lists yet.</p>
+            <p className="hint">Go to Discovery to add companies to a list.</p>
+          </div>
+        )}
+      </div>
 
-            <div className="lists-grid">
-                {lists.length > 0 ? (
-                    lists.map(list => (
-                        <div key={list.id} className="card list-card">
-                            <div className="list-info">
-                                <h3>{list.name}</h3>
-                                <p>{list.companies?.length || 0} Companies</p>
-                            </div>
-                            <div className="list-actions">
-                                <button className="action-link">View List</button>
-                                <button className="action-link">Export CSV</button>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <div className="empty-state card">
-                        <div className="empty-icon">📋</div>
-                        <p>You haven't created any lists yet.</p>
-                        <p className="hint">Go to Discovery to add companies to a list.</p>
-                    </div>
-                )}
-            </div>
-
-            <style jsx>{`
+      <style jsx>{`
         .lists-container {
           display: flex;
           flex-direction: column;
@@ -130,6 +137,6 @@ export default function ListsPage() {
           font-size: 0.875rem;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

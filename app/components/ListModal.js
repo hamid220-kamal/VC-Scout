@@ -40,7 +40,7 @@ export default function ListModal({
                                 className="btn-primary"
                                 onClick={() => onAddToList(document.getElementById('newListInput').value)}
                             >
-                                Create & Add
+                                Create &amp; Add
                             </button>
                         </div>
                     </div>

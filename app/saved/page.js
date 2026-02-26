@@ -4,48 +4,55 @@ import { useState, useEffect } from 'react';
 import { getSavedSearches } from '@/utils/storage';
 
 export default function SavedSearchesPage() {
-    const [searches, setSearches] = useState([]);
+  const [searches, setSearches] = useState([]);
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setSearches(getSavedSearches());
-    }, []);
+  useEffect(() => {
+    const loadData = async () => {
+      setSearches(getSavedSearches());
+      setMounted(true);
+    };
+    loadData();
+  }, []);
 
-    return (
-        <div className="saved-container">
-            <div className="page-header">
-                <div>
-                    <h2 className="page-title">Saved Searches</h2>
-                    <p className="page-subtitle">Quickly re-run your frequent scouting filters.</p>
+  if (!mounted) return null;
+
+  return (
+    <div className="saved-container">
+      <div className="page-header">
+        <div>
+          <h2 className="page-title">Saved Searches</h2>
+          <p className="page-subtitle">Quickly re-run your frequent scouting filters.</p>
+        </div>
+      </div>
+
+      <div className="searches-list">
+        {searches.length > 0 ? (
+          searches.map(search => (
+            <div key={search.id} className="card search-card">
+              <div className="search-info">
+                <h3>{search.name || 'Untitled Search'}</h3>
+                <div className="search-filters">
+                  <span className="badge">Sector: {search.filters?.sector || 'All'}</span>
+                  <span className="badge">Stage: {search.filters?.stage || 'All'}</span>
                 </div>
+              </div>
+              <div className="search-actions">
+                <button className="btn-primary">Run Search</button>
+                <button className="btn-secondary">Delete</button>
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="empty-state card">
+            <div className="empty-icon">💾</div>
+            <p>You haven&apos;t saved any searches yet.</p>
+            <p className="hint">Use the &quot;Save Search&quot; button on the Discovery page.</p>
+          </div>
+        )}
+      </div>
 
-            <div className="searches-list">
-                {searches.length > 0 ? (
-                    searches.map(search => (
-                        <div key={search.id} className="card search-card">
-                            <div className="search-info">
-                                <h3>{search.name || 'Untitled Search'}</h3>
-                                <div className="search-filters">
-                                    <span className="badge">Sector: {search.filters?.sector || 'All'}</span>
-                                    <span className="badge">Stage: {search.filters?.stage || 'All'}</span>
-                                </div>
-                            </div>
-                            <div className="search-actions">
-                                <button className="btn-primary">Run Search</button>
-                                <button className="btn-secondary">Delete</button>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <div className="empty-state card">
-                        <div className="empty-icon">💾</div>
-                        <p>You haven't saved any searches yet.</p>
-                        <p className="hint">Use the "Save Search" button on the Discovery page.</p>
-                    </div>
-                )}
-            </div>
-
-            <style jsx>{`
+      <style jsx>{`
         .saved-container {
           display: flex;
           flex-direction: column;
@@ -139,6 +146,6 @@ export default function SavedSearchesPage() {
           font-size: 0.875rem;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

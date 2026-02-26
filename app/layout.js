@@ -1,14 +1,35 @@
+import Link from 'next/link';
 import './globals.css';
 
 export const metadata = {
-  title: 'VC Scout | Precision Intelligence for Venture Capital',
-  description: 'A precision AI scout for VC sourcing and triage. Discover startups, enrich profiles with AI, and manage your investment pipeline.',
-  keywords: ['venture capital', 'startup sourcing', 'AI enrichment', 'investment triage', 'deal flow management', 'startups', 'VC tools'],
+  title: 'VC Scout | precision AI scout for VC sourcing and triage',
+  description: 'Streamline startup discovery, profile enrichment, and investment pipeline management with VC Scout. A precision AI scout for Venture Capital firms.',
+  keywords: ['venture capital', 'startup sourcing', 'AI enrichment', 'investment triage', 'deal flow management', 'startups', 'VC intelligence', 'Harmonic alternative'],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: 'VC Scout | Intelligence Interface',
-    description: 'Precision AI scout for venture capital sourcing and triage.',
+    title: 'VC Scout | Venture Intelligence Interface',
+    description: 'Precision AI scout for VC sourcing and triage.',
+    url: 'https://vc-scout.ai',
+    siteName: 'VC Scout',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
     type: 'website',
-  }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VC Scout | precision AI scout',
+    description: 'The intelligence layer for your VC fund.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -23,15 +44,15 @@ export default function RootLayout({ children }) {
             </div>
 
             <nav className="nav-menu">
-              <a href="/" className="nav-item active">
+              <Link href="/" className="nav-item active">
                 <span className="icon">🔍</span> Discovery
-              </a>
-              <a href="/lists" className="nav-item">
+              </Link>
+              <Link href="/lists" className="nav-item">
                 <span className="icon">📋</span> My Lists
-              </a>
-              <a href="/saved" className="nav-item">
+              </Link>
+              <Link href="/saved" className="nav-item">
                 <span className="icon">💾</span> Saved Searches
-              </a>
+              </Link>
             </nav>
 
             <div className="sidebar-footer">

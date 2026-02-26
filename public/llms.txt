@@ -1,0 +1,18 @@
+# VC Scout
+
+A precision AI scout for Venture Capital firms to streamline startup sourcing and triage.
+
+## Core Features
+- Discovery: Faceted search with intelligence table.
+- AI Enrichment: On-demand scraping and analysis using AI.
+- Pipeline Management: Custom lists and persistent internal notes.
+
+## Technical Details
+- Framework: Next.js 14+ (App Router)
+- CSS: Vanilla CSS with Global Design Tokens.
+- Data Interaction: Local storage persistence for user-specific data.
+
+## Documentation
+- Product Requirements (docs/PRD.md)
+- Technical Specifications (docs/FSD.md)
+- User Guide (docs/Help.md)
