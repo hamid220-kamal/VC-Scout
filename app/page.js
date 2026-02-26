@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import mockCompanies from '@/data/mock-companies.json';
