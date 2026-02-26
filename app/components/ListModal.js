@@ -63,9 +63,21 @@ export default function ListModal({
                     z-index: 1000;
                 }
                 .modal-content {
-                    width: 400px;
+                    width: 90%;
+                    max-width: 400px;
                     padding: 2rem;
                     position: relative;
+                }
+                @media (max-width: 768px) {
+                    .modal-content {
+                        padding: 1.5rem;
+                    }
+                    .input-group {
+                        flex-direction: column;
+                    }
+                    .btn-primary {
+                        width: 100%;
+                    }
                 }
                 .modal-body {
                     margin-top: 1.5rem;

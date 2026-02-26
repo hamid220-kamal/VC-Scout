@@ -136,6 +136,20 @@ export default function ListsPage() {
           font-weight: 600;
           font-size: 0.875rem;
         }
+
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+          .btn-primary {
+            width: 100%;
+          }
+          .lists-grid {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
     </div>
   );

@@ -145,6 +145,22 @@ export default function SavedSearchesPage() {
           font-weight: 600;
           font-size: 0.875rem;
         }
+
+        @media (max-width: 768px) {
+          .search-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+          }
+          .search-actions {
+            width: 100%;
+          }
+          .search-actions button {
+            flex: 1;
+            justify-content: center;
+          }
+        }
       `}</style>
     </div>
   );
