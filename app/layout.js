@@ -1,8 +1,14 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'VC Scout | Intelligence Interface',
-  description: 'Precision AI scout for venture capital sourcing and triage.',
+  title: 'VC Scout | Precision Intelligence for Venture Capital',
+  description: 'A precision AI scout for VC sourcing and triage. Discover startups, enrich profiles with AI, and manage your investment pipeline.',
+  keywords: ['venture capital', 'startup sourcing', 'AI enrichment', 'investment triage', 'deal flow management', 'startups', 'VC tools'],
+  openGraph: {
+    title: 'VC Scout | Intelligence Interface',
+    description: 'Precision AI scout for venture capital sourcing and triage.',
+    type: 'website',
+  }
 };
 
 export default function RootLayout({ children }) {

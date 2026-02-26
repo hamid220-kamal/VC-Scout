@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import mockCompanies from '@/data/mock-companies.json';
-import { getCachedEnrichment, cacheEnrichment, saveList } from '@/utils/storage';
+import { getCachedEnrichment, cacheEnrichment, saveList, getNotes, saveNote } from '@/utils/storage';
 
 export default function CompanyProfile() {
   const { id } = useParams();
@@ -12,6 +12,7 @@ export default function CompanyProfile() {
   const [enriching, setEnriching] = useState(false);
   const [enrichmentData, setEnrichmentData] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [note, setNote] = useState('');
 
   useEffect(() => {
     const found = mockCompanies.find(c => c.id === id);
@@ -19,10 +20,18 @@ export default function CompanyProfile() {
       setCompany(found);
       const cached = getCachedEnrichment(id);
       if (cached) setEnrichmentData(cached);
+
+      const savedNote = getNotes(id);
+      setNote(savedNote);
     } else {
       router.push('/');
     }
   }, [id, router]);
+
+  const handleSaveNote = () => {
+    saveNote(id, note);
+    alert('Note saved!');
+  };
 
   const handleEnrich = async () => {
     if (!company) return;
@@ -178,8 +187,19 @@ export default function CompanyProfile() {
             {activeTab === 'notes' && (
               <div className="notes-tab">
                 <h3>Internal Notes</h3>
-                <textarea placeholder="Add a note about this company..." className="notes-area"></textarea>
-                <button className="btn-primary" style={{ marginTop: '1rem' }}>Save Note</button>
+                <textarea
+                  placeholder="Add a note about this company..."
+                  className="notes-area"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                ></textarea>
+                <button
+                  className="btn-primary"
+                  style={{ marginTop: '1rem' }}
+                  onClick={handleSaveNote}
+                >
+                  Save Note
+                </button>
               </div>
             )}
           </div>

@@ -33,3 +33,12 @@ export const getCachedEnrichment = (companyId) => {
 export const cacheEnrichment = (companyId, data) => {
     localStorage.setItem(`enrich_${companyId}`, JSON.stringify(data));
 };
+
+export const getNotes = (companyId) => {
+    if (typeof window === 'undefined') return '';
+    return localStorage.getItem(`notes_${companyId}`) || '';
+};
+
+export const saveNote = (companyId, note) => {
+    localStorage.setItem(`notes_${companyId}`, note);
+};
